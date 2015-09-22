@@ -21,23 +21,59 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../js/searchDictionary.js" as SearchDictionary
 
 CoverBackground {
     Label {
-        id: label
+        id: resultLabel
+        anchors.top: parent.top
+        width: parent.width
+        text: dictionaryResultModel.count > 0 ? dictionaryResultModel.get(0).content : ''
+        visible: dictionaryResultModel.count > 0
+        fontSizeMode: Text.Fit
+    }
+
+    Label {
+        id: noClipboardLabel
         anchors.centerIn: parent
-        text: qsTr("My Cover")
+        width: parent.width
+        text: qsTr('Translate')
+        visible: !Clipboard.hasText
+        fontSizeMode: Text.Fit
+    }
+
+    Label {
+        id: clipboardLabel
+        width: parent.width
+        anchors.centerIn: parent
+        text: qsTr('Translate clipboard')
+        visible: Clipboard.hasText
+        fontSizeMode: Text.Fit
     }
 
     CoverActionList {
         id: coverAction
+        enabled: Clipboard.hasText
 
         CoverAction {
-            iconSource: "image://theme/icon-cover-next"
-        }
-
-        CoverAction {
-            iconSource: "image://theme/icon-cover-pause"
+            iconSource: 'image://theme/icon-cover-search'
+            onTriggered: {
+                dictionaryResultModel.clear();
+                var result = SearchDictionary.inDict('http://dict.uni-leipzig.de/dictd').forWord(Clipboard.text).search(function (result) {
+                    dictionaryResultModel.append(result);
+                }, null, function(finishedWithoutError) {
+                    if (finishedWithoutError) {
+                        if (1 === pageStack.depth) {
+                            pageStack.push(Qt.resolvedUrl("../pages/SecondPage.qml"));
+                        }
+                        if (!window.applicationActive) {
+                            window.activate();
+                        }
+                    } else {
+                        // finished with errors
+                    }
+                });
+            }
         }
     }
 }
