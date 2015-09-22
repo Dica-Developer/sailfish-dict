@@ -40,28 +40,36 @@ Page {
         Component.onCompleted: {
         }
 
-        delegate: ListItem {
+        delegate: Item {
             id: dictionaryResultListItem
+            x: Theme.horizontalPageMargin
+            width: parent.width - 2*Theme.horizontalPageMargin
+            height: childrenRect.height
 
             Label {
                 x: Theme.horizontalPageMargin
                 id: nameLabel
                 text: content
-                font.pixelSize: Theme.fontSizeMedium
-                truncationMode: TruncationMode.Fade
-                width: parent.width - 2*Theme.horizontalPageMargin
-                maximumLineCount: 1
+                font.pixelSize: Theme.fontSizeExtraSmall
+                wrapMode: Text.WordWrap
+                maximumLineCount: 50
+                width: parent.width
+                anchors {
+                    left: parent.left
+                    rightMargin: Theme.paddingSmall
+                }
             }
             Label {
                 x: Theme.horizontalPageMargin
                 anchors {
                     top: nameLabel.bottom
                 }
-                font.pixelSize: Theme.fontSizeExtraSmall
+                fontSizeMode: Text.Fit
                 truncationMode: TruncationMode.Fade
                 width: parent.width - 2*Theme.horizontalPageMargin
                 maximumLineCount: 1
                 text: description
+                font.italic: true
             }
         }
     }
