@@ -54,13 +54,77 @@ Page {
                     if (errorHighlight) {
                         queryTextField.focus = true;
                     } else {
+                        errorPanel.open = false;
+                        progressPanel.open = true;
+                        dictionaryResultModel.clear();
                         var queryTextValue = queryTextField.text.trim();
                         var result = SearchDictionary.inDict('http://dict.uni-leipzig.de/dictd').forWord(queryTextValue).search(function (result) {
                             dictionaryResultModel.append(result);
+                        }, function (errorCode) {
+                            switch (errorCode) {
+                            case 1:
+                                errorPanelMessage.text = qsTr('Error on requesting dict data on %s for "%s"', 'http://dict.uni-leipzig.de/dictd' , queryTextValue);
+                                // server error
+                                break;
+                            case 0:
+                                errorPanelMessage.text = qsTr('No translations found!');
+                                break;
+                            default:
+                                errorPanelMessage.text = qsTr('Unknown error with code "' + errorCode + '"')
+                            }
+                            errorPanel.open = true;
+                        }, function(finishedWithoutError) {
+                            progressPanel.open = false;
+                            if (finishedWithoutError) {
+                                pageStack.push(Qt.resolvedUrl("SecondPage.qml"));
+                            }
                         });
-                        pageStack.push(Qt.resolvedUrl("SecondPage.qml"));
                     }
                 }
+            }
+        }
+    }
+
+    DockedPanel {
+        id: errorPanel
+
+        width: page.isPortrait ? parent.width : Theme.itemSizeExtraLarge + Theme.paddingLarge
+        height: page.isPortrait ? Theme.itemSizeExtraLarge + Theme.paddingLarge : parent.height
+
+        dock: page.isPortrait ? Dock.Bottom : Dock.Right
+
+        Label {
+            id: errorPanelMessage
+            x: Theme.horizontalPageMargin
+            anchors {
+                centerIn: parent
+            }
+            fontSizeMode: Text.Fit
+            width: parent.width - 2*Theme.horizontalPageMargin
+            maximumLineCount: 1
+            text: ''
+        }
+    }
+
+    DockedPanel {
+        id: progressPanel
+
+        width: page.isPortrait ? parent.width : Theme.itemSizeExtraLarge + Theme.paddingLarge
+        height: page.isPortrait ? Theme.itemSizeExtraLarge + Theme.paddingLarge : parent.height
+
+        dock: page.isPortrait ? Dock.Bottom : Dock.Right
+
+        ProgressCircle {
+            id: progressCircle
+
+            anchors.centerIn: parent
+
+            NumberAnimation on value {
+                from: 0
+                to: 1
+                duration: 1000
+                running: progressPanel.expanded
+                loops: Animation.Infinite
             }
         }
     }

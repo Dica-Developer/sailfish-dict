@@ -28,37 +28,59 @@ function inDict(url) {
         return this;
     }
 
-    function search(oneItemHandler, errorHandler) {
+    function search(oneItemHandler, errorHandler, searchEndHandler) {
         var request = new XMLHttpRequest();
         request.open("GET", _url + '?Form=dict1&Query=' + encodeURIComponent(_query) + '&Strategy=*&Database=*', true);
         request.onreadystatechange = function () {
-            if (XMLHttpRequest.DONE === request.readyState) {
-                if (200 === request.status) {
-                    var content = request.responseText;
-                    content = content.substring(content.indexOf('<pre>'), content.lastIndexOf('</pre>') + 6);
-                    content = content.substring(content.indexOf('</pre>') + 6);
-                    content = content.substring(content.indexOf('</pre>') + 6);
-                    content = content.replace(/<b>From /gi, '{');
-                    content = content.replace(/<\/pre>/gi, '}');
-                    content = content.replace(/<\/a>:\n<\/b><pre>/gi, '","content":"');
-                    content = content.replace(/}{<a href=/gi, '"},{"url":');
-                    content = content.replace(/">/gi, '","description":"');
-                    content = content.replace('<a href=', '"url":');
-                    content = content.replace(/\n/gi, '#');
-                    content = '{"result":[' + content + ']}';
-                    content = content.replace('}]', '"}]');
-                    content = JSON.parse(content);
-                    if (content.result.length > 0) {
-                        console.log(content.result.length);
-                        for (var i=0; i < content.result.length; i++) {
-                            oneItemHandler(content.result[i]);
+            try {
+                if (XMLHttpRequest.DONE === request.readyState) {
+                    if (200 === request.status) {
+                        var error = true;
+                        var content = request.responseText;
+                        content = content.substring(content.indexOf('<pre>'), content.lastIndexOf('</pre>') + 6);
+                        content = content.substring(content.indexOf('</pre>') + 6);
+                        content = content.substring(content.indexOf('</pre>') + 6);
+                        content = content.replace(/"/gi, '\'')
+                        content = content.replace(/<b>From /gi, '{');
+                        content = content.replace(/<\/pre>/gi, '}');
+                        content = content.replace(/<\/a>:\n<\/b><pre>/gi, '","content":"');
+                        content = content.replace(/}{<a href=\'/gi, '"},{"url":"');
+                        content = content.replace(/\'>/gi, '","description":"');
+                        content = content.replace('<a href=\'', '"url":"');
+                        content = content.replace(/\n/gi, '#');
+                        content = '{"result":[' + content + ']}';
+                        content = content.replace('}]', '"}]');
+                        content = content.replace(/&lt;/gi, '<');
+                        content = JSON.parse(content);
+                        if (content.result.length > 0) {
+                            for (var i=0; i < content.result.length; i++) {
+                                var entry = content.result[i];
+                                entry.description = entry.description.trim();
+                                entry.content = entry.content.replace(/#/gi, '\n').trim();
+                                oneItemHandler(content.result[i]);
+                            }
+                            error = false;
+                        } else {
+                            errorHandler(0);
+                        }
+                        if (null !== searchEndHandler) {
+                            searchEndHandler(!error);
                         }
                     } else {
-                        errorHandler(qsTr('No definitions found for') + ' ' + _query);
+                        if (null !== errorHandler) {
+                            errorHandler(1);
+                        }
+                        if (null !== searchEndHandler) {
+                            searchEndHandler(false);
+                        }
                     }
-                } else {
-                    console.error('Error on requesting dict data on ' + _url + ' for "' + _query + '"');
-                    errorHandler(1);
+                }
+            } catch (e) {
+                if (null !== errorHandler) {
+                    errorHandler(2);
+                }
+                if (null !== searchEndHandler) {
+                    searchEndHandler(false);
                 }
             }
         }
