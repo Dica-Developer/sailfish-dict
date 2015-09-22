@@ -4,7 +4,11 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <source>My Cover</source>
+        <source>Click to translate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translate clipboard</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -22,18 +26,22 @@
         <source>Search for a word</source>
         <translation type="unfinished"></translation>
     </message>
+    <message numerus="yes">
+        <source>Error on requesting dict data on %s for &quot;%s&quot;</source>
+        <comment>http://dict.uni-leipzig.de/dictd</comment>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>No translations found!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SecondPage</name>
     <message>
         <source>Translations</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>searchDictionary</name>
-    <message>
-        <source>No definitions found for</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
