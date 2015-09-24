@@ -62,6 +62,9 @@ Page {
                             dictionaryResultModel.append(result);
                         }, function (errorCode) {
                             switch (errorCode) {
+                            case 3:
+                                errorPanelMessage.text = qsTr('You need a internet connection to search.');
+                                break;
                             case 1:
                                 errorPanelMessage.text = qsTr('Error on requesting dict data on %s for "%s"', 'http://dict.uni-leipzig.de/dictd' , queryTextValue);
                                 // server error

@@ -66,6 +66,13 @@ function inDict(url) {
                         if (null !== searchEndHandler) {
                             searchEndHandler(!error);
                         }
+                    } if (0 === request.status) {
+                        if (null !== errorHandler) {
+                            errorHandler(3);
+                        }
+                        if (null !== searchEndHandler) {
+                            searchEndHandler(false);
+                        }
                     } else {
                         if (null !== errorHandler) {
                             errorHandler(1);
