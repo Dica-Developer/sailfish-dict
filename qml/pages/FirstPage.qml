@@ -69,7 +69,7 @@ Page {
                                 errorPanelMessage.text = qsTr('Seems there is an error we didn\'t know about. Please report it.');
                                 break;
                             case 1:
-                                errorPanelMessage.text = qsTr('Error on requesting dict data on %s for "%s"', 'http://dict.uni-leipzig.de/dictd' , queryTextValue);
+                                errorPanelMessage.text = qsTr('Error on requesting dict data on freedict.org/dictd for "%1"').arg(queryTextValue);
                                 // server error
                                 break;
                             case 0:
