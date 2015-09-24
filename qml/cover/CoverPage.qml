@@ -24,6 +24,7 @@ import Sailfish.Silica 1.0
 import "../js/searchDictionary.js" as SearchDictionary
 
 CoverBackground {
+
     Label {
         id: resultLabel
         anchors.top: parent.top
@@ -69,8 +70,6 @@ CoverBackground {
                         if (!window.applicationActive) {
                             window.activate();
                         }
-                    } else {
-                        // finished with errors
                     }
                 });
             }
