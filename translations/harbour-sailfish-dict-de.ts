@@ -4,11 +4,11 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <source>Click to translate</source>
+        <source>Translate clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Translate clipboard</source>
+        <source>Translate</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -26,15 +26,20 @@
         <source>Search for a word</source>
         <translation type="unfinished"></translation>
     </message>
-    <message numerus="yes">
-        <source>Error on requesting dict data on %s for &quot;%s&quot;</source>
-        <comment>http://dict.uni-leipzig.de/dictd</comment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-        </translation>
-    </message>
     <message>
         <source>No translations found!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seems there is an error we didn&apos;t know about. Please report it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You need a internet connection to search.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error on requesting dict data on freedict.org/dictd for &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
