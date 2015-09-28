@@ -70,7 +70,6 @@ Page {
                                 break;
                             case 1:
                                 errorPanelMessage.text = qsTr('Error on requesting dict data on freedict.org/dictd for "%1"').arg(queryTextValue);
-                                // server error
                                 break;
                             case 0:
                                 errorPanelMessage.text = qsTr('No translations found!');
