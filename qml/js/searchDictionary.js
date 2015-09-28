@@ -34,7 +34,8 @@ function inDict(url) {
         request.onreadystatechange = function () {
             try {
                 if (XMLHttpRequest.DONE === request.readyState) {
-                    if (200 === request.status) {
+                    switch (request.status) {
+                    case 200:
                         var error = true;
                         var content = request.responseText;
                         content = content.substring(content.indexOf('<pre>'), content.lastIndexOf('</pre>') + 6);
@@ -66,14 +67,16 @@ function inDict(url) {
                         if (null !== searchEndHandler) {
                             searchEndHandler(!error);
                         }
-                    } if (0 === request.status) {
+                        break;
+                    case 0:
                         if (null !== errorHandler) {
                             errorHandler(3);
                         }
                         if (null !== searchEndHandler) {
                             searchEndHandler(false);
                         }
-                    } else {
+                        break;
+                    default:
                         if (null !== errorHandler) {
                             errorHandler(1);
                         }
