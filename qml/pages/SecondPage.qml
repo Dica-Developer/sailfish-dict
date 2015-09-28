@@ -71,12 +71,14 @@ Page {
                     rightMargin: Theme.paddingSmall
                 }
                 fontSizeMode: Text.Fit
+                font.pixelSize: 20
                 truncationMode: TruncationMode.Fade
                 width: parent.width
                 maximumLineCount: 1
                 text: description
                 font.italic: true
                 color: Theme.secondaryColor
+                horizontalAlignment: Text.AlignRight
             }
         }
     }
