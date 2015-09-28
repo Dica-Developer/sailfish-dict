@@ -46,30 +46,37 @@ Page {
             width: parent.width - 2*Theme.horizontalPageMargin
             height: childrenRect.height
 
-            Label {
+            TextArea {
+                id: nameText
                 x: Theme.horizontalPageMargin
-                id: nameLabel
                 text: content
                 font.pixelSize: Theme.fontSizeExtraSmall
                 wrapMode: Text.WordWrap
-                maximumLineCount: 50
                 width: parent.width
+                height: implicitHeight
+                labelVisible: false
                 anchors {
                     left: parent.left
                     rightMargin: Theme.paddingSmall
                 }
+                readOnly: true
+                focusOnClick: true
+                EnterKey.onClicked: parent.focus = true
             }
             Label {
+                id: descriptionLabel
                 x: Theme.horizontalPageMargin
                 anchors {
-                    top: nameLabel.bottom
+                    top: nameText.bottom
+                    rightMargin: Theme.paddingSmall
                 }
                 fontSizeMode: Text.Fit
                 truncationMode: TruncationMode.Fade
-                width: parent.width - 2*Theme.horizontalPageMargin
+                width: parent.width
                 maximumLineCount: 1
                 text: description
                 font.italic: true
+                color: Theme.secondaryColor
             }
         }
     }
