@@ -58,7 +58,7 @@ function inDict(url) {
                                 var entry = content.result[i];
                                 entry.description = entry.description.trim();
                                 entry.content = entry.content.replace(/#/gi, '\n').trim();
-                                oneItemHandler(content.result[i]);
+                                oneItemHandler(entry);
                             }
                             error = false;
                         } else {
