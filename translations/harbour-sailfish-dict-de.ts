@@ -1,53 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
 <context>
     <name>CoverPage</name>
     <message>
         <source>Translate clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Zwischenablage übersetzen</translation>
     </message>
     <message>
         <source>Translate</source>
-        <translation type="unfinished"></translation>
+        <translation>Übersetzen</translation>
     </message>
 </context>
 <context>
     <name>FirstPage</name>
     <message>
         <source>Search a dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>Wörterbuch durchsuchen</translation>
     </message>
     <message>
         <source>Search for</source>
-        <translation type="unfinished"></translation>
+        <translation>Suche nach</translation>
     </message>
     <message>
         <source>Search for a word</source>
-        <translation type="unfinished"></translation>
+        <translation>Such nach einem Wort</translation>
     </message>
     <message>
         <source>No translations found!</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Übersetzungen gefunden!</translation>
     </message>
     <message>
         <source>Seems there is an error we didn&apos;t know about. Please report it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Das ist ein Fehler von dem wir noch nichts wissen. Bitte melde ihn.</translation>
     </message>
     <message>
         <source>You need a internet connection to search.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sie brauchen eine Internet-Verbindung um zu suchen.</translation>
     </message>
     <message>
         <source>Error on requesting dict data on freedict.org/dictd for &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Anfragen von Daten von freedict.org/dictd für &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
     <name>SecondPage</name>
     <message>
         <source>Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>Übersetzungen</translation>
     </message>
 </context>
 </TS>
