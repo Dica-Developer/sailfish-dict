@@ -37,3 +37,4 @@ CONFIG += sailfishapp_i18n
 # modify the localized app name in the the .desktop file.
 TRANSLATIONS += translations/harbour-sailfish-dict-de.ts
 TRANSLATIONS += translations/harbour-sailfish-dict-sv.ts
+TRANSLATIONS += translations/harbour-sailfish-dict-it.ts
