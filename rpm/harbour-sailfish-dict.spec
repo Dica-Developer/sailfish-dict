@@ -13,7 +13,7 @@ Name:       harbour-sailfish-dict
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Dictionary application for sailfish.
-Version:    0.7
+Version:    0.8
 Release:    1
 Group:      Qt/Qt
 License:    LICENSE
