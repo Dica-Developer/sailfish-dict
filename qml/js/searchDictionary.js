@@ -22,15 +22,21 @@
 function inDict(url) {
     var _url = url;
     var _query = '';
+    var _database = '*';
 
     function forWord(query) {
         _query = query;
         return this;
     }
 
+    function inDatabase(database) {
+        _database = database;
+        return this;
+    }
+
     function search(oneItemHandler, errorHandler, searchEndHandler) {
         var request = new XMLHttpRequest();
-        request.open("GET", _url + '?Form=dict1&Query=' + encodeURIComponent(_query) + '&Strategy=*&Database=*', true);
+        request.open("GET", _url + '?Form=Dict2&Query=' + encodeURIComponent(_query) + '&Strategy=*&Database=' + encodeURIComponent(_database), true);
         request.onreadystatechange = function () {
             try {
                 if (XMLHttpRequest.DONE === request.readyState) {
@@ -99,6 +105,7 @@ function inDict(url) {
 
     return {
         forWord: forWord,
+        inDatabase: inDatabase,
         search: search
     }
 }
