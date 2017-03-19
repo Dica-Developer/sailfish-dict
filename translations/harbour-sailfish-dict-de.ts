@@ -39,8 +39,8 @@
         <translation>Sie brauchen eine Internet-Verbindung um zu suchen.</translation>
     </message>
     <message>
-        <source>Error on requesting dict data on freedict.org/dictd for &quot;%1&quot;</source>
-        <translation>Fehler beim Anfragen von Daten von freedict.org/dictd für &quot;%1&quot;</translation>
+        <source>Error on requesting dict data on &quot;%1&quot; for &quot;%2&quot;</source>
+        <translation type="Fehler beim Anfragen von Daten von &quot;%1&quot; für &quot;%2&quot;"></translation>
     </message>
 </context>
 <context>

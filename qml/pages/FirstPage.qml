@@ -69,7 +69,7 @@ Page {
                                 errorPanelMessage.text = qsTr('Seems there is an error we didn\'t know about. Please report it.');
                                 break;
                             case 1:
-                                errorPanelMessage.text = qsTr('Error on requesting dict data on freedict.org/dictd for "%1"').arg(queryTextValue);
+                                errorPanelMessage.text = qsTr('Error on requesting dict data on "%1" for "%2"').arg('http://www.dict.org/bin/Dict').arg(queryTextValue);
                                 break;
                             case 0:
                                 errorPanelMessage.text = qsTr('No translations found!');

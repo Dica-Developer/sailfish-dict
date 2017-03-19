@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="it" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="it">
 <context>
     <name>CoverPage</name>
     <message>
@@ -37,8 +39,8 @@
         <translation>E&apos; necessaria una connessione internet per cercare.</translation>
     </message>
     <message>
-        <source>Error on requesting dict data on freedict.org/dictd for &quot;%1&quot;</source>
-        <translation>Errore nel richiedere dati da freedict.org/dictd per &quot;%1&quot;</translation>
+        <source>Error on requesting dict data on &quot;%1&quot; for &quot;%2&quot;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

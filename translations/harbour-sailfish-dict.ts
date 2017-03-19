@@ -39,7 +39,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Error on requesting dict data on freedict.org/dictd for &quot;%1&quot;</source>
+        <source>Error on requesting dict data on &quot;%1&quot; for &quot;%2&quot;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -39,8 +39,8 @@
         <translation>Du måste ha internetanslutning för att söka.</translation>
     </message>
     <message>
-        <source>Error on requesting dict data on freedict.org/dictd for &quot;%1&quot;</source>
-        <translation>Fel vid begäran om orboksdata från freedict.org/dictd, för &quot;%1&quot;</translation>
+        <source>Error on requesting dict data on &quot;%1&quot; for &quot;%2&quot;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
