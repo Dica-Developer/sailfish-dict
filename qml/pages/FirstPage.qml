@@ -58,7 +58,7 @@ Page {
                         progressPanel.open = true;
                         dictionaryResultModel.clear();
                         var queryTextValue = queryTextField.text.trim();
-                        var result = SearchDictionary.inDict('http://dict.uni-leipzig.de/dictd').forWord(queryTextValue).search(function (result) {
+                        var result = SearchDictionary.inDict('http://www.dict.org/bin/Dict').inDatabase('trans').forWord(queryTextValue).search(function (result) {
                             dictionaryResultModel.append(result);
                         }, function (errorCode) {
                             switch (errorCode) {

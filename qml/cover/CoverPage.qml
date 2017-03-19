@@ -60,7 +60,7 @@ CoverBackground {
             iconSource: 'image://theme/icon-cover-search'
             onTriggered: {
                 dictionaryResultModel.clear();
-                var result = SearchDictionary.inDict('http://dict.uni-leipzig.de/dictd').forWord(Clipboard.text).search(function (result) {
+                var result = SearchDictionary.inDict('http://www.dict.org/bin/Dict').inDatabase('trans').forWord(Clipboard.text).search(function (result) {
                     dictionaryResultModel.append(result);
                 }, null, function(finishedWithoutError) {
                     if (finishedWithoutError) {
